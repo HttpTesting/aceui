@@ -47,8 +47,8 @@ REPORT:
 #发送测试报告,邮件配置
 EMAIL:
     Smtp_Server: smtp.exmail.qq.com
-    Smtp_Sender: lengyaohui.bj@acewill.cn
-    Password: YHleng870120!
+    Smtp_Sender: xxxxx.bj@acewill.cn
+    Password: xxxxxxsssss
     Msg_Title: 线上商家后台-UI自动化测试结果
     #Receivers: ['lengyaohui@163.com']  #收件人
     Receivers: ['xxxxx@163.com'] #收件人
