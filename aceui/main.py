@@ -132,7 +132,7 @@ def run(args, curdir):
             TMPL_MSG = conf['MESSAGE']['MSG'].format(runner.RESULT)
             send_dding_msg(conf['MESSAGE']['TOKEN'], TMPL_MSG)
 
-        if conf['EMAIL']:
+        if conf['MESSAGE']['EMAIL']:
             EmailClass().send()
 
 
