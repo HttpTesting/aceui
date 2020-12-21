@@ -96,7 +96,11 @@ def run(args, curdir):
             unittest.defaultTestLoader.discover(args, pattern='test*.py')
         )
 
-    filePath = os.path.join(gl.reportPath, 'Report.html')  # 确定生成报告的路径
+    report_path = os.path.join(curdir, 'reports')
+    if not os.path.exists(report_path):
+        os.makedirs(report_path)
+
+    filePath = os.path.join(report_path, 'Report.html')  # 确定生成报告的路径
     print(
         '测试报告生成路径:{}'.format(filePath)
     )
