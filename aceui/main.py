@@ -89,7 +89,7 @@ def run(args, curdir):
     if isinstance(args, list):
         for i in args:
             suite.addTest(
-                unittest.defaultTestLoader.discover(curdir, pattern=i)
+                unittest.defaultTestLoader.discover(curdir, pattern=i.split('\\')[1])
             )            
     else:
         suite.addTest(

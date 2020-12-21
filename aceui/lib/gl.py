@@ -38,9 +38,19 @@ casePath = os.path.join(
     'testCase'
 )
 # 存储截图目录，绝对路径
+# imgPath = os.path.join(
+#     PATH(reportPath),
+#     'images')
+
 imgPath = os.path.join(
-    PATH(reportPath),
-    'images')
+    os.path.join(
+        PATH(os.getcwd()),
+        'reports'
+    ),
+    'images'
+)
+if not os.path.exists(imgPath):
+    os.makedirs(imgPath)
 
 # 配置文件目录，绝对路径
 configPath = os.path.join(
@@ -49,8 +59,12 @@ configPath = os.path.join(
 )
 
 # 数据文件目录，绝对路径
+# dataPath = os.path.join(
+#     PATH(os.path.dirname(libPath)),
+#     'data'
+# )
 dataPath = os.path.join(
-    PATH(os.path.dirname(libPath)),
+    os.getcwd(),
     'data'
 )
 # 配置文件，绝对路径

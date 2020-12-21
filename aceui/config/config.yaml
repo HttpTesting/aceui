@@ -9,19 +9,19 @@ HightLight: 1
 
 CONFIG:
     Cookies: #cook信息
-        LoginCookies: {
-               "manager_autologin":"true",
-               "manager_bid":"1428708010",
-               "manager_mid":"1196432510",
-               "manager_sid":"0",
-               "manager_sign":"c79869ecfb42fe977e504c22dae4ee1d"}
+        LoginCookies:
+            manager_autologin: "true"
+            manager_bid: "1428708010"
+            manager_mid: "1196432510"
+            manager_sid: "0"
+            manager_sign: "c79869ecfb42fe977e504c22dae4ee1d"
 
         BossLoginCookies: {"name":"UserSession","value":"5b5ae93a272d7"} #boss,浏览器关闭session过期
 
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
 
-    Base_Url: http://manage.acewill.net
+    Base_Url: http://manage.xxxxx.net
 
     # 自定义全局变量
     Custom_Var:
@@ -32,11 +32,11 @@ CONFIG:
 
 # 发送报告设置；DING 企业微信 True推送；False不推送；EMAIL：True发送邮件，False不发送
 MESSAGE:
-    DING: True
-    EMAIL: False
+    DING: false
+    EMAIL: false
     # 这里需要注意MSG中的{}位置；这个是format会将测试结果，参数化进来。
     TOKEN: "2c412f54-b815-45c5-b928-8fec114d1ea9"
-    MSG: "Pro商家后台UI自动化测试执行【已完成】:\n{}\n测试报告:http://60.205.217.8:5004/pos/pro_manage_web/report"
+    MSG: "Pro商家后台UI自动化测试执行【已完成】:\n{}\n测试报告:http://xx.205.xx.8:5004/pos/pro_manage_web/report"
 
 REPORT:
     title: "UI自动化测试"
@@ -51,9 +51,9 @@ EMAIL:
     Password: YHleng870120!
     Msg_Title: 线上商家后台-UI自动化测试结果
     #Receivers: ['lengyaohui@163.com']  #收件人
-    Receivers: ['lengyaohui@163.com','yechangchun.bj@acewill.cn','wangchaoying.bj@acewill.cn','lilong.bj@acewill.cn','wangyan.bj@acewill.cn','cch@acewill.cn','gzx@acewill.cn','huxl@acewill.cn','jtt@acewill.cn','maming@acewill.cn'] #收件人
+    Receivers: ['xxxxx@163.com'] #收件人
     From: 自动化测试系统
-    To: 微生活测试组
+    To: 测试组
 
 #REPLAY：Time元素回放时间(毫秒)
 #CASE：Retry用例失败重试次数
@@ -62,13 +62,4 @@ RUNING:
         Time: 500
     CASE:
         Retry: 1
-
-    DESCPTION: N不执行，Y执行
-    CHARGE: #消费模块
-        Flag: {"testCase1":{"Flag":"N","desc":"实体卡开卡"},
-               "testCase2":{"Flag":"N","desc":"积分消费"},
-               "testCase3":{"Flag":"N","desc":"储值消费"},
-               "testCase4":{"Flag":"Y","desc":"券消费"},
-               "testCase5":{"Flag":"N","desc":"实体卡绑卡"},
-               "testCase6":{"Flag":"N","desc":"次卡开卡"}}
 
