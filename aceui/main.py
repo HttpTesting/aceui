@@ -1,12 +1,6 @@
-# ########################################################
-# 将根目录加入sys.path中,解决命令行找不到包的问题
+
 import sys
 import os
-curPath = os.path.abspath(os.path.dirname(__file__))
-rootPath = os.path.split(curPath)[0]
-sys.path.insert(0, rootPath)
-# ########################################################
-
 import time
 import unittest
 import argparse
@@ -75,6 +69,12 @@ def run_min():
         run(files, cur_dir)
     elif dirs:
         casedir = os.path.join(os.getcwd(), dirs)
+
+        # ########################################################
+        # 将根目录加入sys.path中,解决命令行找不到包的问题
+        rootPath = os.path.split(casedir)[0]
+        sys.path.insert(0, rootPath)
+        # ########################################################
         run(casedir, cur_dir)
 
 
