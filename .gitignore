@@ -1,9 +1,11 @@
 /.idea/
 /.vscode/
+/.git/
+/dist/
 
 /*.pyc/
-/report/*.*
-/report/images/*.*
+/reports/*.*
+/reports/images/*.*
 /__pycache__/
 /lib/__pycache__/*.*
 /base/__pycache__/*.*
