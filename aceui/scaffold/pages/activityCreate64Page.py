@@ -197,10 +197,10 @@ class ActivityCreate64(BasePage):
             'text',
             *(self.activity_assert_loc)
         )
-
-        # 截取断言图片，会展示在报告中
+        txt = str(txt).strip()
+        text = str(text).strip()
         self.get_image
-        if str(txt).strip() != str(text).strip():
+        if not txt != text:
             return False
         return True
 
