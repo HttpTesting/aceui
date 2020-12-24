@@ -7,6 +7,7 @@ import os
 import string
 import random
 import zipfile
+import shutil
 import csv
 from selenium import webdriver
 import yaml
@@ -118,15 +119,8 @@ def remove_all_files(dirpath):
     :param dirpath: 目标目录
     :return: 无
     """
-    listdir = os.listdir(dirpath)
-    if listdir:
-        for f in listdir:
-            filepath = os.path.join(dirpath, f)
-            if os.path.isfile(filepath):
-                os.remove(filepath)
-            if os.path.isdir(filepath):
-                os.rmdir(filepath)
-
+    if os.path.exists(dirpath):
+        shutil.rmtree(dirpath)
 
 def zip_dir(dirpath,out_fullName):
     """

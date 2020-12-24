@@ -70,17 +70,24 @@ def run_min():
     args = parse.parse_args()
     files = args.file
     dirs = args.dir
-    scaffold = args.create
-    conf = args.conf
+    scaffold = args.scaffold
+    conf = args.config
 
     # 执行单个文件或指定目录执行
     if conf:
-        os.system(gl.configFile)
+        if str(conf[0]).strip() == 'set':
+            os.system(gl.configFile)
     elif scaffold:
-        scd = os.path.join(cur_dir, 'scaffold')
+        scd = os.path.join(cur_dir, str(scaffold[0]).strip())
+
         core.remove_all_files(scd)
 
-        shutil.copy(gl.scaffold_path, scd)
+        try:
+            shutil.copytree(gl.scaffold_path, scd)
+            print('脚手架生成完成:{}'.format(scd))
+        except:
+            pass
+            
 
     if files:
         run(files, cur_dir)
