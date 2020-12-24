@@ -31,6 +31,11 @@ reportPath = os.path.join(
     'report'
     )
 
+# 脚手架目录
+scaffold_path = os.path.join(
+    PATH(os.path.dirname(libPath)),
+    'scaffold'
+)
 
 # case目录，绝对路径
 casePath = os.path.join(
@@ -86,4 +91,5 @@ if __name__ == "__main__":
     print('report/images路径:{0}'.format(imgPath))
     print('config路径:{0}'.format(configPath))
     print('data路径:{0}'.format(dataPath))
+    print(scaffold_path)
 

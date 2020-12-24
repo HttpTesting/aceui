@@ -1,0 +1,52 @@
+
+
+CASE1:
+    -
+        case_desc: "开卡关怀赠代金券-正常流程" #case描述
+        page_title: "开卡关怀 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试开卡关怀" #活动名称
+        coupon_type: 0 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        credit_num: "%NONE%" #赠积分数
+        charge_num: "%NONE%" #赠储值
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+    -
+        case_desc: "开卡关怀赠代金券(不提醒)-正常流程" #case描述
+        page_title: "开卡关怀 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试开卡关怀" #活动名称
+        coupon_type: 0 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 0 #发券提醒；0不提醒；1短信提醒
+        expire_index: 0 #券到期提醒；0不提醒；1短信提醒
+        credit_num: 1 #赠积分数
+        charge_num: 1 #赠储值
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+    -
+        case_desc: "开卡关怀赠礼品券-正常流程" #case描述
+        page_title: "开卡关怀 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试开卡关怀" #活动名称
+        coupon_type: 1 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        credit_num: "%NONE%" #赠积分数
+        charge_num: "%NONE%" #赠储值
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+    -
+        case_desc: "开卡关怀赠礼品券(不提醒)-正常流程" #case描述
+        page_title: "开卡关怀 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试开卡关怀" #活动名称
+        coupon_type: 1 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 0 #发券提醒；0不提醒；1短信提醒
+        expire_index: 0 #券到期提醒；0不提醒；1短信提醒
+        credit_num: 1 #赠积分数
+        charge_num: 1 #赠储值
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+

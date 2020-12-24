@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aceui"
-version = "1.0.7"
+version = "1.0.9"
 description = "基于Selenium的UI自动化测试框架"
 license = "Apache-2.0"
 readme = "README.md"
@@ -35,8 +35,8 @@ requests = "2.25.0"
 
 
 [tool.poetry.scripts]
-aceui = "aceui.main:run_min"
-ace = "aceui.main:run_min"
+aceui = "aceui.cli:run_min"
+ace = "aceui.cli:run_min"
 
 
 [build-system]

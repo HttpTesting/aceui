@@ -14,7 +14,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.select import Select
 from aceui.lib import gl
-from aceui.lib.scripts import (
+from aceui.lib.core import (
     get_yaml_field,
     replay,
     hight_light_conf,
