@@ -9,6 +9,7 @@ HightLight: 1
 
 CONFIG:
     Cookies: #cook信息
+        USED: false
         LoginCookies:
             manager_autologin: "true"
             manager_bid: "1428708010"
@@ -21,7 +22,7 @@ CONFIG:
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
 
-    Base_Url: http://manage.xxxxx.net
+    Base_Url: http://manage.acewill.net
 
     # 自定义全局变量
     Custom_Var:

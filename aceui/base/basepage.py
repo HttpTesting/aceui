@@ -15,7 +15,6 @@ from selenium.common.exceptions import (
 from selenium.webdriver.support.select import Select
 from aceui.lib import gl
 from aceui.lib.core import (
-    get_yaml_field,
     replay,
     hight_light_conf,
     reply_case_fail,
@@ -24,6 +23,7 @@ from aceui.lib.core import (
     rnd_num,
     get_data
 )
+from aceui.lib.config import CONF
 from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
@@ -491,11 +491,11 @@ class BasePage:
     @property
     def open(self):
         """打开浏览器，写入cookies登录信息"""
-        yamldict = get_yaml_field(gl.configFile)
-        ck_dict = yamldict['CONFIG']['Cookies']['LoginCookies']
+        cook_conf = CONF.read(gl.configFile)['CONFIG']['Cookies']
         self._open(self.base_url)
-        self.add_cookies(ck_dict)
-        self._open(self.base_url)
+        if cook_conf['USED']:
+            self.add_cookies(cook_conf['LoginCookies'])
+            self._open(self.base_url)
         assert self.driver.title == self.pagetitle, "断言标题错误,请查检页面"
 
 
