@@ -14,9 +14,20 @@ from aceui.lib import HTMLTESTRunnerCN
 from aceui.lib.emailstmp import EmailClass
 
 
+'''
+调试的正确姿势：
+1.调试指定tetCase下用例
+case_module_name  = ["testActivityCreate1.py", "testActivityCreate2.py"]
+
+2.执行testCase下所有用例
+case_module_name  = []
+'''
+
+case_module_name  = ["testActivityCreate1.py"]
 
 
-if __name__=="__main__":
+def debug(title='UI自动化测试报告', desc='详细测试用例结果', tester='天枢'):
+    '''debug'''
     cur_path = os.getcwd()
 
     case_path = os.path.join(cur_path, 'testCase')
@@ -28,20 +39,35 @@ if __name__=="__main__":
 
     suite = unittest.TestSuite()
 
-    suite.addTest(
-        unittest.defaultTestLoader.discover(case_path, 'test*.py')
-    )
+    if case_module_name:
+        for name in case_module_name:
+            suite.addTest(
+                unittest.defaultTestLoader.discover(case_path, name)
+            )
+    else:
+        suite.addTest(
+                unittest.defaultTestLoader.discover(case_path, 'test*.py')
+        )
+
     filePath = os.path.join(report_path, 'Report.html')  # 确定生成报告的路径
     print(filePath)
 
     with open(filePath, 'wb') as fp:
         runner = HTMLTESTRunnerCN.HTMLTestRunner(
             stream=fp,
-            title=u'UI自动化测试报告',
-            description=u'详细测试用例结果',  # 不传默认为空
-            tester="天枢"  # 测试人员名字，不传默认为小强
+            title=title,
+            description=desc,  # 不传默认为空
+            tester=tester  # 测试人员名字，不传默认为小强
         )
 
         # 运行测试用例
         runner.run(suite)
+
+
+if __name__=="__main__":
+    debug(
+        title='UI自动化测试报告', 
+        desc='详细测试用例结果', 
+        tester='天枢'
+    )
 

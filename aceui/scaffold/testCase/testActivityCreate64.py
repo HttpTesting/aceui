@@ -1,7 +1,7 @@
 import os
 import unittest
 import ddt
-from pages.activityCreate64Page import ActivityCreate64
+from pages import *
 from aceui.lib.core import (
     select_Browser_WebDriver,
     reply_case_fail,
@@ -12,6 +12,11 @@ from aceui.lib import (
     gl,
     HTMLTESTRunnerCN
 )
+
+'''
+1.以上导入不需要动，pages导入的所有包名，引用：包名称.类名称
+2.只需要改动以下代码
+'''
 
 @ddt.ddt
 class TestActivityCreate64(unittest.TestCase):
@@ -32,7 +37,7 @@ class TestActivityCreate64(unittest.TestCase):
     def testCase1(self, data):
         """开卡关怀"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
-        self.tc = ActivityCreate64(
+        self.tc = activityCreate64.ActivityCreate64(
             self.url,
             self.driver,
             data['page_title']
@@ -73,26 +78,3 @@ class TestActivityCreate64(unittest.TestCase):
         #断言列表为空
         self.assertTrue(self.tc.assert_delete_result())
 
-
-
-if __name__ == "__main__":
-    suite = unittest.TestSuite()
-    tests = [
-        unittest.TestLoader().loadTestsFromTestCase(
-            TestActivityCreate64
-        )
-    ]
-
-    suite.addTests(tests)
-    filePath = os.path.join(gl.reportPath, 'Report.html')  # 确定生成报告的路径
-    print(filePath)
-
-    with open(filePath, 'wb') as fp:
-        runner = HTMLTESTRunnerCN.HTMLTestRunner(
-            stream=fp,
-            title=u'UI自动化测试报告',
-            description=u'详细测试用例结果',  # 不传默认为空
-            tester=u"yhleng"  # 测试人员名字，不传默认为小强
-        )
-        # 运行测试用例
-        runner.run(suite)
