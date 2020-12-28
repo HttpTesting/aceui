@@ -22,7 +22,7 @@ CONFIG:
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
 
-    Base_Url: http://manage.acewill.net
+    Base_Url: http://manage.xxxxx.net
 
     # 自定义全局变量
     Custom_Var:
