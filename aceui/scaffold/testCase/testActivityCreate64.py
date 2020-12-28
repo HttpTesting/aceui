@@ -1,7 +1,6 @@
 import os
 import unittest
 import ddt
-from pages import *
 from aceui.lib.core import (
     select_Browser_WebDriver,
     reply_case_fail,
@@ -17,6 +16,7 @@ from aceui.lib import (
 1.以上导入不需要动，pages导入的所有包名，引用：包名称.类名称
 2.只需要改动以下代码
 '''
+from pages.activityCreate64Page import ActivityCreate64
 
 @ddt.ddt
 class TestActivityCreate64(unittest.TestCase):
@@ -37,7 +37,7 @@ class TestActivityCreate64(unittest.TestCase):
     def testCase1(self, data):
         """开卡关怀"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
-        self.tc = activityCreate64.ActivityCreate64(
+        self.tc = ActivityCreate64(
             self.url,
             self.driver,
             data['page_title']
