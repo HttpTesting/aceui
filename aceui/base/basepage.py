@@ -4,7 +4,6 @@ create:2018/10/27
 by: yhleng
 """
 import os
-
 import time
 from PIL import Image
 from selenium.common.exceptions import (
@@ -172,7 +171,7 @@ class BasePage:
 
     @reply_case_fail(num=3)
     def find_elements(self, *loc):
-        '''批量找标签'''
+        '''批量找元素'''
         timeout = 10 #智能等待时间
         try:
             self.driver.implicitly_wait(timeout) #智能等待；此贯穿self.driver整个生命周期
@@ -256,13 +255,12 @@ class BasePage:
             if self.is_display_timeout(element, timeout, *loc):
                 self.hightlight(element)
                 return True
-            else:
-                return False
-            self.driver.implicitly_wait(0)
+
+            return False
         except (
                 NoSuchElementException,
                 ElementNotVisibleException,
-                UnexpectedAlertPresentException) as ex:
+                UnexpectedAlertPresentException):
             self.get_image #10秒还未找到显示的元素
             return False
 
@@ -283,10 +281,11 @@ class BasePage:
             self.hightlight(e)
 
             self.driver.implicitly_wait(0)
-            return True
-        except NoSuchElementException as ex:
+            
+        except NoSuchElementException:
             self.get_image #10秒还未找到元素，截图
             return False
+        return True
 
 
     def exist_and_click(self, *loc):
@@ -301,7 +300,7 @@ class BasePage:
             self.hightlight(element)
             element.click()
             self.driver.implicitly_wait(0)
-        except NoSuchElementException as ex:
+        except NoSuchElementException:
             pass
 
     def exist_and_input(self, text, *loc):
@@ -317,7 +316,7 @@ class BasePage:
             element.send_keys(str(text).strip())
 
             self.driver.implicitly_wait(0)
-        except (NoSuchElementException, ElementNotVisibleException) as ex:
+        except (NoSuchElementException, ElementNotVisibleException):
             pass
 
 
@@ -510,10 +509,7 @@ class BasePage:
         :param loc: 定位
         :return: Select对象
         """
-        st = Select(
-            self.find_element(*loc)
-        )
-        return st
+        return Select(self.find_element(*loc))
 
 
 
