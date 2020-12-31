@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aceui"
-version = "1.0.18"
+version = "1.0.19"
 description = "基于Selenium的UI自动化测试框架"
 license = "Apache-2.0"
 readme = "README.md"

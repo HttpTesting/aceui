@@ -178,7 +178,6 @@ def get_data(file, field):
     yaml = (str(file).endswith('.yaml'), str(file).endswith('.yam'))
     file = '{}.yaml'.format(file) if not (yaml[0] or yaml[1]) else file
         
-    print(os.getcwd())
     field = str(field).strip().upper()
     data = CONF.read(
         os.path.join(
