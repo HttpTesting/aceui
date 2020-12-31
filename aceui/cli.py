@@ -96,8 +96,7 @@ def run_min():
 
         # ########################################################
         # 将根目录加入sys.path中,解决命令行找不到包的问题
-        rootPath = os.path.split(casedir)[0]
-        sys.path.insert(0, rootPath)
+        sys.path.insert(0, cur_dir)
         # ########################################################
         run(casedir, cur_dir)
 
