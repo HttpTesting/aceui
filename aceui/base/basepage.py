@@ -72,6 +72,7 @@ class BasePage:
             if element.is_displayed() and element.is_enabled():
                 return True
             self.wait(500)
+            self.action_chains.move_to_element(element)
             element = self.driver.find_element(*loc)
         self.get_image
         return False
