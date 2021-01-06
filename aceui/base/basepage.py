@@ -71,8 +71,10 @@ class BasePage:
         while (int(time.time())-start_time) <= timeses:
             if element.is_displayed() and element.is_enabled():
                 return True
+            
+            # 防止滚动条或者页面遮挡
+            self.action_chains.move_to_element(element).perform()
             self.wait(500)
-            self.action_chains.move_to_element(element)
             element = self.driver.find_element(*loc)
         self.get_image
         return False
