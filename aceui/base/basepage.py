@@ -72,8 +72,6 @@ class BasePage:
             if element.is_displayed() and element.is_enabled():
                 return True
             
-            # 防止滚动条或者页面遮挡
-            self.action_chains.move_to_element(element).perform()
             self.wait(500)
             element = self.driver.find_element(*loc)
         self.get_image
@@ -621,7 +619,14 @@ class BasePage:
         """右键方法"""
         action = ActionChains(self.driver)
         return action
-
+        
+    def scroll_top_by_element(self, *loc):
+        '''
+        将元素滚动到屏幕最上方
+        element 滚动条所在的元素div
+        '''
+        ele = self.find_element(*loc)
+        self.driver.execute_script("arguments[0].scrollTop=10000;", ele)
 
 if __name__ == "__main__":
     base = BasePage('', '', '')
